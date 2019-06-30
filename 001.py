@@ -1,8 +1,24 @@
 # -*- coding: UTF-8 -*-
 #filename：作业一号
 #authorby：phantom
-print("-----丧心病狂-----")
+
+#print("-----丧心病狂-----")
 import random
+
+# 写文件
+filename = "homework.txt"
+f = open(filename, 'w')  # write 方式第一次写一行
+
+text2write = "nowbegin\n"
+f.write(text2write)
+f.close()
+
+f = open(filename, 'a') # append 方式读文件
+
+
+
+
+
 total=0
 
 for i in range(1,101):
@@ -10,9 +26,9 @@ for i in range(1,101):
 print("{0}".format(total))
 
 count=0
-for row in range(1,11):
+for row in range(1,21):
     line1=""
-    for col in range(1,11):
+    for col in range(1,6):
         count=count+1
 
         #print("第{0}行,第{1}列.第{2}题\t\t\t".format(row,col,count))
@@ -31,6 +47,11 @@ for row in range(1,11):
         if op ==4:
             line1=line1+"%d/%d=\t"%(a,b)
 
-    print(line1)
-    print("\t")
+
+    text2write=line1+'\n'
+    f.write(text2write)
 print("---over---totally{0}questions".format(count))
+text2write="---over---totally{0}questions\n".format(count)
+f.write(text2write)
+
+f.close()
